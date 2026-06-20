@@ -1,0 +1,39 @@
+services:
+  retrain:
+    build: .
+    environment:
+      AIRRAID_DATA_SOURCE_TYPE: local_csv
+      AIRRAID_ENABLE_TUNING: "false"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./reports:/app/reports
+    command: ["python", "-m", "src.retrain"]
+
+  pipeline:
+    build: .
+    environment:
+      AIRRAID_DATA_SOURCE_TYPE: local_csv
+    volumes:
+      - ./data:/app/data
+      - ./reports:/app/reports
+    command: ["python", "-m", "src.main"]
+
+  serve:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      AIRRAID_DATA_SOURCE_TYPE: local_csv
+      AIRRAID_SERVING_RATE_LIMIT_BACKEND: redis
+      AIRRAID_SERVING_REDIS_URL: redis://redis:6379/0
+    volumes:
+      - ./models:/app/models
+    depends_on:
+      - redis
+    command: ["python", "-m", "src.serving"]
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"

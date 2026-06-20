@@ -1,0 +1,26 @@
+.venv/
+__pycache__/
+<<<<<<< HEAD
+*.pyc
+.env
+.DS_Store
+data/raw/
+data/processed/
+models/
+.pytest_cache/
+.ruff_cache/
+.idea/
+.vscode/
+=======
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+.env
+.env.*
+configs/api_keys.rotation.json
+models/
+*.egg-info/
+dist/
+build/
+>>>>>>> 981b0cc (feat: finalize project structure and documentation)

@@ -1,0 +1,112 @@
+project_name: AirRaidAnalysis
+
+paths:
+  raw_data: data/raw/alerts.csv
+  extended_raw_data: data/raw/alerts_extended.csv
+  processed_data: data/processed/alerts_processed.csv
+  features_data: data/processed/alerts_features.csv
+  baseline_metrics: reports/baseline_metrics.json
+  summary_report: reports/evaluation_summary.md
+  tuning_results: reports/tuning_results.json
+  metrics_history: reports/metrics_history.json
+  monitoring_alerts: reports/monitoring_alerts.json
+  drift_reference: reports/drift_reference.json
+  drift_alerts: reports/drift_alerts.json
+  ab_evaluation: reports/ab_evaluation.json
+
+data_source:
+  type: local_csv
+  url: null
+  column_map: {}
+
+api:
+  alerts_in_ua_url: https://api.alerts.in.ua/v1/alerts/active.json
+  history_base_url: https://api.alerts.in.ua/v1/regions
+  history_period: month_ago
+  region_uids: [16]
+  token: null
+  max_retries: 3
+  retry_backoff_seconds: 1.0
+  rate_limit_seconds: 0.5
+  serving_host: 0.0.0.0
+  serving_port: 8000
+
+registry:
+  dir: models
+  production_model: xgboost_global
+
+columns:
+  target: alert_count
+  datetime: timestamp
+  region: region
+
+time:
+  timezone: Europe/Kyiv
+  resample_rule: 1h
+
+modeling:
+  test_size: 0.2
+  season_period: 24
+  lag_periods: [1, 24]
+  random_seed: 42
+
+tuning:
+  enabled: false
+  trials: 10
+  auto_register: true
+
+monitoring:
+  enabled: true
+  degradation_threshold: 0.15
+  webhook_url: null
+  drift_enabled: true
+  drift_threshold: 0.25
+
+serving:
+  host: 0.0.0.0
+  port: 8000
+  rate_limit:
+    enabled: true
+    backend: memory
+    requests: 60
+    window_seconds: 60
+    redis_url: redis://redis:6379/0
+    redis_key_prefix: airraid:ratelimit
+    exempt_paths:
+      - /health
+      - /metrics
+  auth:
+    enabled: false
+    api_key: null
+    api_key_previous: null
+    rotation_file: configs/api_keys.rotation.json
+    exempt_paths:
+      - /health
+      - /metrics
+  metrics:
+    enabled: true
+
+tracing:
+  enabled: false
+  service_name: airraidanalysis-serve
+  exporter_endpoint: http://localhost:4318/v1/traces
+
+slo:
+  inference_p95_seconds: 0.5
+  inference_error_rate_max: 0.01
+
+baselines:
+  - seasonal_naive
+  - linear_regression
+  - arima
+  - sarimax_s24
+  - xgboost
+  - lightgbm
+
+arima:
+  order: [1, 0, 0]
+  seasonal_order: [0, 0, 0, 0]
+  sarimax_seasonal_order: [1, 0, 0, 24]
+
+boosting:
+  n_estimators: 100

@@ -1,0 +1,22 @@
+{
+  "generated_at_utc": "2026-06-20T17:18:45.522899+00:00",
+  "alert_count": 2,
+  "alerts": [
+    {
+      "feature": "alert_count",
+      "observed": 3.5641025641025643,
+      "reference": 0.8292682926829268,
+      "relative_change": 3.297888386123681,
+      "threshold": 0.25,
+      "message": "Drift on alert_count: 0.8293 -> 3.5641 (+329.8%)"
+    },
+    {
+      "feature": "day_of_week",
+      "observed": 5.410256410256411,
+      "reference": 2.6341463414634148,
+      "relative_change": 1.0538936372269705,
+      "threshold": 0.25,
+      "message": "Drift on day_of_week: 2.6341 -> 5.4103 (+105.4%)"
+    }
+  ]
+}

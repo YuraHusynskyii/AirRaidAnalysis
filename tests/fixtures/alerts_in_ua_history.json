@@ -1,0 +1,26 @@
+[
+  {
+    "id": 101,
+    "location_oblast": "Луганська область",
+    "started_at": "2024-05-01T08:10:00.000Z",
+    "alert_type": "air_raid"
+  },
+  {
+    "id": 102,
+    "location_oblast": "Луганська область",
+    "started_at": "2024-05-01T12:30:00.000Z",
+    "alert_type": "air_raid"
+  },
+  {
+    "id": 103,
+    "location_oblast": "Луганська область",
+    "started_at": "2024-05-02T09:05:00.000Z",
+    "alert_type": "air_raid"
+  },
+  {
+    "id": 104,
+    "location_oblast": "Луганська область",
+    "started_at": "2024-05-02T15:20:00.000Z",
+    "alert_type": "artillery_shelling"
+  }
+]

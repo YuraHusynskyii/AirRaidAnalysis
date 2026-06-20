@@ -1,0 +1,95 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airraid-serve
+  labels:
+    app: airraidanalysis
+    component: serve
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: airraidanalysis
+      component: serve
+  template:
+    metadata:
+      labels:
+        app: airraidanalysis
+        component: serve
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: /metrics
+        prometheus.io/port: "8000"
+    spec:
+      containers:
+        - name: serve
+          image: airraidanalysis:latest
+          imagePullPolicy: IfNotPresent
+          command: ["python", "-m", "src.serving"]
+          ports:
+            - containerPort: 8000
+              name: http
+          env:
+            - name: AIRRAID_SERVING_HOST
+              value: "0.0.0.0"
+            - name: AIRRAID_SERVING_PORT
+              value: "8000"
+            - name: AIRRAID_MODEL_REGISTRY_DIR
+              value: /app/models
+            - name: AIRRAID_SERVING_RATE_LIMIT_ENABLED
+              value: "true"
+            - name: AIRRAID_SERVING_RATE_LIMIT_REQUESTS
+              value: "120"
+            - name: AIRRAID_SERVING_RATE_LIMIT_WINDOW_SECONDS
+              value: "60"
+            - name: AIRRAID_SERVING_RATE_LIMIT_BACKEND
+              value: "redis"
+            - name: AIRRAID_SERVING_REDIS_URL
+              value: redis://airraid-redis:6379/0
+            - name: AIRRAID_SERVING_METRICS_ENABLED
+              value: "true"
+            - name: AIRRAID_SERVING_API_KEY_ENABLED
+              value: "true"
+            - name: AIRRAID_SERVING_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: airraid-secrets
+                  key: inference-api-key
+                  optional: true
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 20
+          volumeMounts:
+            - name: models
+              mountPath: /app/models
+              readOnly: true
+      volumes:
+        - name: models
+          persistentVolumeClaim:
+            claimName: airraid-shared
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: airraid-serve
+  labels:
+    app: airraidanalysis
+    component: serve
+spec:
+  selector:
+    app: airraidanalysis
+    component: serve
+  ports:
+    - name: http
+      port: 8000
+      targetPort: http
+  type: ClusterIP

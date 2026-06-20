@@ -1,0 +1,42 @@
+groups:
+  - name: airraidanalysis
+    rules:
+      - alert: AirRaidHighRateLimitRejections
+        expr: increase(airraid_rate_limit_exceeded_total[5m]) > 10
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High rate-limit rejections on inference API
+          description: More than 10 requests were rejected with HTTP 429 in 5 minutes.
+
+      - alert: AirRaidAuthFailuresSpike
+        expr: increase(airraid_auth_failures_total[5m]) > 5
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: Inference API auth failures spike
+          description: More than 5 invalid API key attempts in 5 minutes.
+
+      - alert: AirRaidHighRequestLatencyP95
+        expr: |
+          histogram_quantile(
+            0.95,
+            sum(rate(airraid_http_request_duration_seconds_bucket[5m])) by (le)
+          ) > 1
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: Inference API p95 latency above 1s
+          description: 95th percentile request latency exceeded 1 second for 10 minutes.
+
+      - alert: AirRaidNoPredictions
+        expr: increase(airraid_predictions_total[1h]) == 0
+        for: 1h
+        labels:
+          severity: info
+        annotations:
+          summary: No inference predictions in the last hour
+          description: Prediction counter did not increase — verify clients or model registry.

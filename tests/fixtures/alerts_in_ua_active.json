@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "location_title": "м. Київ",
+    "location_type": "oblast",
+    "location_oblast": "м. Київ",
+    "started_at": "2024-06-01T10:15:00.000Z",
+    "finished_at": null,
+    "alert_type": "air_raid"
+  },
+  {
+    "id": 2,
+    "location_title": "Львівська область",
+    "location_type": "oblast",
+    "location_oblast": "Львівська область",
+    "started_at": "2024-06-01T11:20:00.000Z",
+    "finished_at": null,
+    "alert_type": "air_raid"
+  },
+  {
+    "id": 3,
+    "location_title": "Харківська область",
+    "location_type": "oblast",
+    "location_oblast": "Харківська область",
+    "started_at": "2024-06-01T12:05:00.000Z",
+    "finished_at": null,
+    "alert_type": "artillery_shelling"
+  }
+]

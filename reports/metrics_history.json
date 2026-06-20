@@ -1,0 +1,310 @@
+[
+  {
+    "recorded_at_utc": "2026-06-20T16:35:20.646413+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T163520Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.0001302957534790039,
+      "rmse": 0.0001302957534790039,
+      "mape": 0.01302957534790039
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T16:35:20.849331+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T163520Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.7377654940654066,
+      "rmse": 0.7941474363310288,
+      "mape": 13.045855753968508
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T16:35:38.907150+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T163538.904766Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.0001302957534790039,
+      "rmse": 0.0001302957534790039,
+      "mape": 0.01302957534790039
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T16:35:42.620750+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T163542.618209Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.0001302957534790039,
+      "rmse": 0.0001302957534790039,
+      "mape": 0.01302957534790039
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T16:35:43.242843+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T163543.240735Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.8344041139651563,
+      "rmse": 0.8844981881763401,
+      "mape": 14.79203450128724
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T16:39:25.146971+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T163925.144612Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.0001302957534790039,
+      "rmse": 0.0001302957534790039,
+      "mape": 0.01302957534790039
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T16:39:25.564733+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T163925.562859Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 1.181688430981758,
+      "rmse": 1.217653259812135,
+      "mape": 21.065262497826534
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T16:39:49.212644+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T163949.210225Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.0001302957534790039,
+      "rmse": 0.0001302957534790039,
+      "mape": 0.01302957534790039
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T16:39:49.402349+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T163949.399978Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.773934009747627,
+      "rmse": 0.8278078065946407,
+      "mape": 13.699362827903716
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T16:43:03.055848+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T164303.053589Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.0001302957534790039,
+      "rmse": 0.0001302957534790039,
+      "mape": 0.01302957534790039
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T16:43:03.596318+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T164303.593136Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.7724560529757765,
+      "rmse": 0.827220523457513,
+      "mape": 13.670596289511833
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T16:44:55.531263+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T164455.528984Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.0001302957534790039,
+      "rmse": 0.0001302957534790039,
+      "mape": 0.01302957534790039
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T16:44:56.168192+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T164456.165608Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.844971779065254,
+      "rmse": 0.8945776772487063,
+      "mape": 14.98262808345887
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T16:57:01.150238+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T165701.147599Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.0001302957534790039,
+      "rmse": 0.0001302957534790039,
+      "mape": 0.01302957534790039
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T16:57:01.778591+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T165701.775329Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.7887856394816664,
+      "rmse": 0.841699548409323,
+      "mape": 13.967676433126714
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T17:04:09.291861+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T170409.289337Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.0001302957534790039,
+      "rmse": 0.0001302957534790039,
+      "mape": 0.01302957534790039
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T17:04:09.602267+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T170409.599941Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.9546422988940504,
+      "rmse": 0.9987695564372984,
+      "mape": 16.963928161072914
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T17:18:07.507852+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T171807.505129Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.0001302957534790039,
+      "rmse": 0.0001302957534790039,
+      "mape": 0.01302957534790039
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T17:18:07.941919+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T171807.938871Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.8205907375384596,
+      "rmse": 0.8718407147539985,
+      "mape": 14.541459561001579
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T17:18:22.947750+00:00",
+    "model_name": "xgboost_global",
+    "version": "audit-current",
+    "previous_version": "audit-previous",
+    "metrics": {
+      "mae": 0.5,
+      "rmse": 0.6,
+      "mape": 5.0
+    },
+    "alerts": [
+      "MAE degraded: 0.1000 -> 0.5000 (+400.0%)",
+      "RMSE degraded: 0.2000 -> 0.6000 (+200.0%)",
+      "MAPE degraded: 1.0000 -> 5.0000 (+400.0%)"
+    ]
+  },
+  {
+    "recorded_at_utc": "2026-06-20T17:18:25.002084+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T171824.999455Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.0001302957534790039,
+      "rmse": 0.0001302957534790039,
+      "mape": 0.01302957534790039
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T17:18:25.247130+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T171825.244663Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.8411966592837599,
+      "rmse": 0.8910127568139236,
+      "mape": 14.914432247670595
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T17:18:40.508643+00:00",
+    "model_name": "xgboost_global",
+    "version": "audit-current",
+    "previous_version": "audit-previous",
+    "metrics": {
+      "mae": 0.5,
+      "rmse": 0.6,
+      "mape": 5.0
+    },
+    "alerts": [
+      "MAE degraded: 0.1000 -> 0.5000 (+400.0%)",
+      "RMSE degraded: 0.2000 -> 0.6000 (+200.0%)",
+      "MAPE degraded: 1.0000 -> 5.0000 (+400.0%)"
+    ]
+  },
+  {
+    "recorded_at_utc": "2026-06-20T17:18:45.446074+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T171845.443222Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 0.0001302957534790039,
+      "rmse": 0.0001302957534790039,
+      "mape": 0.01302957534790039
+    },
+    "alerts": []
+  },
+  {
+    "recorded_at_utc": "2026-06-20T17:18:45.956708+00:00",
+    "model_name": "xgboost_global",
+    "version": "20260620T171845.954078Z",
+    "previous_version": null,
+    "metrics": {
+      "mae": 1.0365592271853712,
+      "rmse": 1.0773796659850807,
+      "mape": 18.44356890317598
+    },
+    "alerts": []
+  }
+]

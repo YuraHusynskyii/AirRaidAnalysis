@@ -1,0 +1,46 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: airraid-retrain
+spec:
+  schedule: "15 3 * * *"
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: retrain
+              image: airraidanalysis:latest
+              imagePullPolicy: IfNotPresent
+              command: ["python", "-m", "src.retrain"]
+              env:
+                - name: AIRRAID_DATA_SOURCE_TYPE
+                  value: local_csv
+                - name: AIRRAID_ENABLE_TUNING
+                  value: "true"
+                - name: AIRRAID_AUTO_REGISTER_TUNED_MODEL
+                  value: "true"
+                - name: AIRRAID_ALERTS_IN_UA_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: airraid-secrets
+                      key: alerts-in-ua-token
+                      optional: true
+              volumeMounts:
+                - name: data
+                  mountPath: /app/data
+                - name: models
+                  mountPath: /app/models
+                - name: reports
+                  mountPath: /app/reports
+          volumes:
+            - name: data
+              emptyDir: {}
+            - name: models
+              persistentVolumeClaim:
+                claimName: airraid-shared
+            - name: reports
+              emptyDir: {}
