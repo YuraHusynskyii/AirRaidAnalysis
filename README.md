@@ -101,6 +101,8 @@ The script runs `src/main.py` against the bundled sample dataset (`data/samples/
 
 ## 📚 Additional Documentation
 
-- [Engineering Reflection](docs/ENGINEERING_REFLECTION.md) — methodology and AI-assisted development process
-- [Production Runbook](deploy/production_runbook.md) — deploy and rollback procedures
-- [Development Log](LOG.md) — iteration history
+- [Gemini Architectural Log](https://gemini.google.com/share/b6dbd3c8b55d) — Cloud session link covering core architecture, module shadowing debugging, and production hardening
+- [Cursor AI Conversation Log](ai_conversation_log.txt) — Full local development transcripts and workspace implementation sessions
+- [Engineering Reflection](REFLECTION.md) — Architectural decisions, trade-offs, and AI-assisted development methodology
+- [Development Log](LOG.md) — 20-iteration technical history (Context → Writer → QA → Why)
+- [Production Runbook](deploy/production_runbook.md) — Deployment, monitoring, and zero-downtime rollback procedures
