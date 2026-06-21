@@ -88,7 +88,7 @@ class AppConfig(BaseSettings):
     )
 
     project_name: str = "AirRaidAnalysis"
-    raw_data_path: Path = Path("data/raw/alerts.csv")
+    raw_data_path: Path = Path("data/samples/sample_alerts.csv")
     processed_data_path: Path = Path("data/processed/alerts_processed.csv")
     features_data_path: Path = Path("data/processed/alerts_features.csv")
     baseline_metrics_path: Path = Path("reports/baseline_metrics.json")
@@ -186,7 +186,7 @@ def _flatten_experiment_yaml(payload: dict[str, Any]) -> dict[str, Any]:
 
     return {
         "project_name": payload.get("project_name", "AirRaidAnalysis"),
-        "raw_data_path": Path(paths.get("raw_data", "data/raw/alerts.csv")),
+        "raw_data_path": Path(paths.get("raw_data", "data/samples/sample_alerts.csv")),
         "processed_data_path": Path(
             paths.get("processed_data", "data/processed/alerts_processed.csv")
         ),

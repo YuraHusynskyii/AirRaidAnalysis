@@ -13,7 +13,7 @@ from src.main import run_baseline_evaluation, run_pipeline
 
 def test_run_pipeline_smoke(tmp_path: Path) -> None:
     """Pipeline loads fixture CSV and writes processed hourly counts."""
-    raw_path = Path("data/raw/alerts.csv")
+    raw_path = Path("data/samples/sample_alerts.csv")
     processed_path = tmp_path / "alerts_processed.csv"
     features_path = tmp_path / "alerts_features.csv"
 
@@ -41,7 +41,7 @@ def test_run_pipeline_smoke(tmp_path: Path) -> None:
 
 def test_run_baseline_evaluation_smoke(tmp_path: Path) -> None:
     """Baseline evaluation returns metrics and writes JSON/Markdown reports."""
-    raw_path = Path("data/raw/alerts.csv")
+    raw_path = Path("data/samples/sample_alerts.csv")
     metrics_path = tmp_path / "baseline_metrics.json"
     summary_path = tmp_path / "evaluation_summary.md"
     config = AppConfig(

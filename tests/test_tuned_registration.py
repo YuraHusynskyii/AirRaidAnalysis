@@ -30,7 +30,7 @@ def _featured_frame(length: int = 40) -> pd.DataFrame:
 def test_run_retrain_registers_tuned_model_when_enabled(tmp_path: Path, monkeypatch) -> None:
     """Retrain registers Optuna-tuned model when tuning is enabled."""
     config = AppConfig(
-        raw_data_path=Path("data/raw/alerts.csv"),
+        raw_data_path=Path("data/samples/sample_alerts.csv"),
         processed_data_path=tmp_path / "processed.csv",
         features_data_path=tmp_path / "features.csv",
         baseline_metrics_path=tmp_path / "metrics.json",

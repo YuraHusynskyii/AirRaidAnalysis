@@ -1,7 +1,7 @@
 project_name: AirRaidAnalysis
 
 paths:
-  raw_data: data/raw/alerts.csv
+  raw_data: data/samples/sample_alerts.csv
   extended_raw_data: data/raw/alerts_extended.csv
   processed_data: data/processed/alerts_processed.csv
   features_data: data/processed/alerts_features.csv

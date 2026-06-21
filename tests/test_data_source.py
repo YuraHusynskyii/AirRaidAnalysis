@@ -15,7 +15,7 @@ def test_load_alerts_from_local_source() -> None:
     """Local CSV source loads fixture dataset."""
     config = AppConfig(
         data_source_type="local_csv",
-        raw_data_path=Path("data/raw/alerts.csv"),
+        raw_data_path=Path("data/samples/sample_alerts.csv"),
     )
     df = load_alerts_from_source(config=config)
     assert len(df) == 55

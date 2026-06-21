@@ -15,7 +15,7 @@ def test_load_config_from_yaml_defaults() -> None:
 
     assert isinstance(config, AppConfig)
     assert config.project_name == "AirRaidAnalysis"
-    assert config.raw_data_path == Path("data/raw/alerts.csv")
+    assert config.raw_data_path == Path("data/samples/sample_alerts.csv")
     assert config.test_size == pytest.approx(0.2)
     assert config.lag_periods == [1, 24]
     assert config.timezone == "Europe/Kyiv"
