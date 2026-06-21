@@ -1,3 +1,9 @@
+--- PART 1: GEMINI ARCHITECTURAL & CI/CD REPAIR LOG ---
+Interactive session link for the cloud workflow recovery, module shadowing debug, and production hardening:
+https://gemini.google.com/share/b6dbd3c8b55d
+
+--- PART 2: CURSOR IMPLEMENTATION LOG ---
+
 # Тестове завдання з аналізу часових рядів
 _Exported on 21/06/2026 at 19:56:39 EEST from Cursor (3.8.11)_
 
@@ -1313,8 +1319,3 @@ Please finalize the repository cleanup by committing the remaining changes:
 | Push → `origin/main` | ✅ `cf09c61..a6f1eed` |
 
 Репозиторій тепер синхронізований: README посилається на `data/samples/sample_alerts.csv`, і файл реально є на GitHub.
-
-
---- PART 2: GEMINI ARCHITECTURAL & CI/CD REPAIR LOG ---
-Interactive session link for the cloud workflow recovery, module shadowing debug, and production hardening:
-https://gemini.google.com/share/b6dbd3c8b55d
