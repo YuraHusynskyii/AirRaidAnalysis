@@ -1,15 +1,29 @@
+# Virtual environments
 .venv/
+venv/
+env/
+.conda/
+
+# Python cache & build artifacts
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .ruff_cache/
-.DS_Store
-.env
-.env.*
-configs/api_keys.rotation.json
-models/
 *.egg-info/
 dist/
 build/
+
+# System files
+.DS_Store
+
+# Secrets & local config
+.env
+.env.*
+configs/api_keys.rotation.json
+
+# Generated data & model artifacts
+models/
 data/raw/
 data/processed/
+data/results/*
+!data/results/.gitkeep

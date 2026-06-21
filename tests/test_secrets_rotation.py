@@ -11,7 +11,7 @@ from sklearn.linear_model import LinearRegression
 from src.auth import is_valid_api_key
 from src.config import AppConfig
 from src.registry import save_model_artifact
-from src.secrets import collect_valid_api_keys, rotate_api_keys
+from src.secret_store import collect_valid_api_keys, rotate_api_keys
 from src.serving import create_app
 
 

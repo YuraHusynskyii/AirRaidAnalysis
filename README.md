@@ -71,6 +71,34 @@ curl http://127.0.0.1:8000/health
 
 ---
 
+## ✅ Smoke Test
+
+The fastest way to verify the full pipeline end-to-end — no API keys or external data required.
+
+```bash
+# After creating the venv and installing dependencies (see above)
+.venv/bin/python smoke_test.py
+```
+
+The script runs `src/main.py` against the bundled sample dataset (`data/samples/sample_alerts.csv`) and checks that all expected artifacts are produced. On success you will see:
+
+```
+✅ СМОК-ТЕСТ УСПІШНО ПРОЙДЕНО: Пайплайн працює, файли збережено!
+```
+
+**Generated artifacts** (written to `data/results/`):
+
+| File | Description |
+|------|-------------|
+| `alerts_processed.csv` | Cleaned and hourly-resampled alert signals |
+| `alerts_features.csv` | Feature matrix ready for modeling |
+| `baseline_metrics.json` | Evaluation metrics for baseline models |
+| `evaluation_summary.md` | Human-readable evaluation report |
+
+> **Note:** `data/results/` is gitignored — artifacts are regenerated locally by the smoke test.
+
+---
+
 ## 📚 Additional Documentation
 
 - [Engineering Reflection](docs/ENGINEERING_REFLECTION.md) — methodology and AI-assisted development process

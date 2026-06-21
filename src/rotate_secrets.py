@@ -6,7 +6,7 @@ import argparse
 from pathlib import Path
 
 from src.config import get_config
-from src.secrets import rotate_api_keys
+from src.secret_store import rotate_api_keys
 
 
 def main() -> Path:

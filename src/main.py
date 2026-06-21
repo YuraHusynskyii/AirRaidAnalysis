@@ -2,7 +2,13 @@
 
 from __future__ import annotations
 
+import sys
 from pathlib import Path
+
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+
 from typing import Any, Dict, Optional, Tuple
 
 import pandas as pd
@@ -186,27 +192,68 @@ def run_optional_tuning(
         raise RuntimeError("Optional tuning step failed.") from exc
 
 
-def main() -> Path:
+def main(config: Optional[AppConfig] = None) -> Path:
     """CLI entrypoint that runs the pipeline and baseline evaluation.
+
+    Args:
+        config: Optional settings override for CLI flags or tests.
 
     Returns:
         Path: Path to processed CSV artifact.
     """
-    config = get_config()
-    processed_df, featured_df, regional_df = run_pipeline(config=config)
+    active_config = config or get_config()
+    processed_df, featured_df, regional_df = run_pipeline(config=active_config)
     run_baseline_evaluation(
         processed_df=processed_df,
         featured_df=featured_df,
         regional_df=regional_df,
-        config=config,
+        config=active_config,
     )
     run_optional_tuning(
         processed_df=processed_df,
         featured_df=featured_df,
-        config=config,
+        config=active_config,
     )
-    return config.processed_data_path
+    return active_config.processed_data_path
+
+
+def _build_cli_config() -> AppConfig:
+    """Parse CLI flags and merge them into application settings."""
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Run the AirRaidAnalysis pipeline.")
+    parser.add_argument(
+        "--input",
+        type=Path,
+        help="Path to raw alerts CSV input file.",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        help="Directory where processed data and reports are written.",
+    )
+    args = parser.parse_args()
+
+    config = get_config()
+    updates: dict[str, Path] = {}
+    if args.input is not None:
+        updates["raw_data_path"] = args.input
+    if args.output is not None:
+        output_dir = args.output
+        output_dir.mkdir(parents=True, exist_ok=True)
+        updates.update(
+            {
+                "processed_data_path": output_dir / "alerts_processed.csv",
+                "features_data_path": output_dir / "alerts_features.csv",
+                "baseline_metrics_path": output_dir / "baseline_metrics.json",
+                "summary_report_path": output_dir / "evaluation_summary.md",
+            }
+        )
+
+    if not updates:
+        return config
+    return config.model_copy(update=updates)
 
 
 if __name__ == "__main__":
-    main()
+    main(config=_build_cli_config())

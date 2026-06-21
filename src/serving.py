@@ -14,7 +14,7 @@ from src.metrics import record_prediction, render_prometheus_metrics
 from src.metrics_middleware import PrometheusMetricsMiddleware
 from src.rate_limit import RateLimitMiddleware, create_rate_limiter
 from src.registry import load_latest_model_artifact
-from src.secrets import collect_valid_api_keys
+from src.secret_store import collect_valid_api_keys
 from src.tracing import setup_tracing, trace_span
 from src.tracing_middleware import TracingMiddleware
 
